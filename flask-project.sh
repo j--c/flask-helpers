@@ -5,7 +5,7 @@ project_name=$1
 
 function install_flask_packages(){
     touch flask_install.log
-    pip install flask flask-sqlalchemy flask-migrate flask-wtf > "flask_install.log"
+    pip install flask flask-sqlalchemy flask-migrate flask-wtf flask-login > "flask_install.log"
 }
 
 function write_gitignore(){
