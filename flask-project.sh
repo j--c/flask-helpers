@@ -61,9 +61,11 @@ function create_app_init_file(){
     echo "from flask import Flask" >> $file_path
     echo "from config import Config" >> $file_path
     echo "" >> $file_path
+    echo "" >> $file_path
     echo "def create_app(config_class=Config):" >> $file_path
     echo "    app = Flask(__name__)" >> $file_path
     echo "    app.config.from_object(config_class)" >> $file_path
+    echo "    return app"
 }
 
 
