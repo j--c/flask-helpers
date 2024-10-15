@@ -51,6 +51,7 @@ function create_basic_files(){
     create_template_files
     create_routes_file
     create_init_file
+    update_app_init_file
 }
 
 if [ -z "$blueprint_name" ]; then
