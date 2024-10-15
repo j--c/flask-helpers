@@ -56,8 +56,17 @@ function create_project_file(){
 function create_config_file(){
     file_path="config.py"
     touch $file_path
+    echo "import os" >> $file_path 
+    echo "" >> $file_path 
+    echo "BASE_DIR = os.path.abspath(os.path.dirname(__file__))" >> $file_path 
+    echo "" >> $file_path 
+    echo "" >> $file_path 
     echo "class Config:" >> $file_path 
-    echo "    TEST_VALUE = '123'" >> $file_path
+    echo "    SECRET_KEY = os.environ.get(FLASK_SECRET)" >> $file_path
+    echo "    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(" >> $file_path
+    echo "        BASE_DIR," >> $file_path
+    echo "        '$project_name.db'" >> $file_path
+    echo "    )" >> $file_path
 }
 
 function create_app_init_file(){
