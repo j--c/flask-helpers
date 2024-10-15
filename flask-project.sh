@@ -1,7 +1,7 @@
 #!/bin/bash
 
 project_name=$1
-
+app_dir='app'
 
 function install_flask_packages(){
     touch flask_install.log
@@ -16,6 +16,25 @@ function write_gitignore(){
     echo "*.py.class" >> .gitignore
     echo "# Virtual environment" >> .gitignore
     echo "venv/" >> .gitignore
+}
+
+function create_template_files(){
+    template_dir="$app_dir/templates"
+    index_file="base.html"
+    file_path=$template_dir/$index_file
+    mkdir -p $template_dir
+    touch $file_path 
+    echo "<!doctype html>" >> $file_path
+    echo "<html lang="en">" >> $file_path
+    echo "    <head>" >> $file_path
+    echo "        <title>Welcome</title>" >> $file_path
+    echo "    </head>" >> $file_path
+    echo "    <body>" >> $file_path
+    echo "        this is base<br>" >> $file_path
+    echo "        {% block content %}" >> $file_path
+    echo "        {% endblock %}" >> $file_path
+    echo "    </body>" >> $file_path
+    echo "</html>" >> $file_path
 }
 
 function create_project_file(){
@@ -35,10 +54,9 @@ function create_config_file(){
 }
 
 function create_app_init_file(){
-    app_dir_name="app"
     app_init_file_name="__init__.py"
-    file_path="$app_dir_name/$app_init_file_name"
-    mkdir $app_dir_name
+    file_path="$app_dir/$app_init_file_name"
+    mkdir $app_dir
     touch $file_path
     echo "from flask import Flask" >> $file_path
     echo "from config import Config" >> $file_path
@@ -48,10 +66,12 @@ function create_app_init_file(){
     echo "    app.config.from_object(config_class)" >> $file_path
 }
 
+
 function create_basic_files(){
     create_project_file
     create_config_file
     create_app_init_file
+    create_templatefiles
 }
 
 if [ -z "$project_name" ]; then
