@@ -22,7 +22,7 @@ function create_routes_file(){
     echo "from app.$blueprint_name import bp" >> $file_path
     echo "" >> $file_path
     echo "" >> $file_path
-    echo "@bp.route('/', methods['GET'])" >> $file_path
+    echo "@bp.route('/', methods=['GET'])" >> $file_path
     echo "def index():" >> $file_path
     echo "    return render_template('$blueprint_name/index.html')" >> $file_path
 }
