@@ -4,7 +4,7 @@ app_dir='app'
 blueprint_name=$1
 
 function create_init_file(){
-    file_path='__init__.py'
+    file_path="$app_dir/$blueprint_name/__init__.py"
     touch $file_path 
     echo "from flask import Blueprint" >> $file_path
     echo "" >> $file_path
@@ -16,7 +16,7 @@ function create_init_file(){
 }
 
 function create_routes_file(){
-    file_path='routes.py'
+    file_path="$app_dir/$blueprint_name/routes.py"
     touch $file_path 
     echo "from flask import render_template" >> $file_path
     echo "from app.$blueprint_name import bp" >> $file_path
@@ -28,7 +28,7 @@ function create_routes_file(){
 }
 
 function create_template_files(){
-    template_dir="templates/$blueprint_name"
+    template_dir="$app_dir/$blueprint_name/templates/$blueprint_name"
     index_file="index.html"
     file_path=$template_dir/$index_file
     mkdir -p $template_dir
@@ -51,7 +51,6 @@ if [ -z "$blueprint_name" ]; then
 else
     echo "Creating blueprint directory..."
     mkdir -p $app_dir/$blueprint_name
-    cd $blueprint_name
 
     echo "Creating basic files..."
     create_basic_files
