@@ -73,7 +73,7 @@ function create_basic_files(){
     create_project_file
     create_config_file
     create_app_init_file
-    create_templatefiles
+    create_template_files
 }
 
 if [ -z "$project_name" ]; then
