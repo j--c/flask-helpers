@@ -58,8 +58,8 @@ if [ -z "$project_name" ]; then
     echo "Project name required!"
 else
     echo "Creating project directory..."
-    mkdir $1
-    cd $1
+    mkdir $project_name
+    cd $project_name
 
     echo "Creating virtual environment..."
     python3 -m venv venv
