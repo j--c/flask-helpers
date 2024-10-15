@@ -14,8 +14,15 @@ function write_gitignore(){
     echo "__pycache__/" >> .gitignore
     echo "*.py[cod]" >> .gitignore
     echo "*.py.class" >> .gitignore
+    echo "" >> .gitignore
     echo "# Virtual environment" >> .gitignore
     echo "venv/" >> .gitignore
+    echo "" >> .gitignore
+    echo "# Migrations / Alembic" >> .gitignore
+    echo "migrations/" >> .gitignore
+    echo "" >> .gitignore
+    echo "# Databases" >> .gitignore
+    echo "*.db" >> .gitignore
 }
 
 function create_template_files(){
