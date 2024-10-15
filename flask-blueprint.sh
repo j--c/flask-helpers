@@ -43,8 +43,8 @@ function update_app_init_file(){
     app_init_file_name="__init__.py"
     file_path="$app_dir/$app_init_file_name"
 
-    echo "# from $app_dir.$blueprint_name import bp as $blueprint_name_bp" >> $file_path
-    echo "# app.register_blueprint($blueprint_name_bp, url_prefix='/$blueprint_name')" >> $file_path
+    echo "# from $app_dir.$blueprint_name import bp as bp_$blueprint_name" >> $file_path
+    echo "# app.register_blueprint(bp_$blueprint_name, url_prefix='/$blueprint_name')" >> $file_path
 }
 
 function create_basic_files(){
