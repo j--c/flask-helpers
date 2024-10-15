@@ -1,5 +1,6 @@
 #!/bin/bash
 
+app_dir='app'
 blueprint_name=$1
 
 function create_init_file(){
@@ -49,7 +50,7 @@ if [ -z "$blueprint_name" ]; then
     echo "Blueprint name required!"
 else
     echo "Creating blueprint directory..."
-    mkdir $blueprint_name
+    mkdir -p $app_dir/$blueprint_name
     cd $blueprint_name
 
     echo "Creating basic files..."
