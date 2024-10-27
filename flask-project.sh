@@ -62,7 +62,7 @@ function create_config_file(){
     echo "" >> $file_path 
     echo "" >> $file_path 
     echo "class Config:" >> $file_path 
-    echo "    SECRET_KEY = os.environ.get(FLASK_SECRET)" >> $file_path
+    echo "    SECRET_KEY = os.environ.get('FLASK_SECRET')" >> $file_path
     echo "    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(" >> $file_path
     echo "        BASE_DIR," >> $file_path
     echo "        '$project_name.db'" >> $file_path
